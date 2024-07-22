@@ -17,6 +17,16 @@
 		BB2AF3502C48F47C00C3BFEF /* SADemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2AF34F2C48F47C00C3BFEF /* SADemoTests.swift */; };
 		BB2AF35A2C48F47C00C3BFEF /* SADemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2AF3592C48F47C00C3BFEF /* SADemoUITests.swift */; };
 		BB2AF35C2C48F47C00C3BFEF /* SADemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2AF35B2C48F47C00C3BFEF /* SADemoUITestsLaunchTests.swift */; };
+		BB2AF36A2C491F7D00C3BFEF /* AuthenticationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2AF3692C491F7D00C3BFEF /* AuthenticationEntity.swift */; };
+		BB2AF36D2C49206D00C3BFEF /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2AF36C2C49206D00C3BFEF /* Endpoints.swift */; };
+		BB2AF36F2C495CAE00C3BFEF /* InspectionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2AF36E2C495CAE00C3BFEF /* InspectionEntity.swift */; };
+		BB2AF3712C4A3BFA00C3BFEF /* NSURLAPINetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2AF3702C4A3BFA00C3BFEF /* NSURLAPINetworkClass.swift */; };
+		BB2AF3732C4AA77200C3BFEF /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2AF3722C4AA77200C3BFEF /* LoginRegisterViewController.swift */; };
+		BB3DE2C62C4B84A5002F0477 /* LoginRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DE2C52C4B84A5002F0477 /* LoginRegisterViewModel.swift */; };
+		BB3DE2C82C4BCBDC002F0477 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DE2C72C4BCBDC002F0477 /* DashboardViewController.swift */; };
+		BB3DE2CA2C4BCBE7002F0477 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DE2C92C4BCBE7002F0477 /* DashboardViewModel.swift */; };
+		BB3DE2CD2C4D86B2002F0477 /* InspectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DE2CB2C4D86B2002F0477 /* InspectionTableViewCell.swift */; };
+		BB3DE2CE2C4D86B2002F0477 /* InspectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB3DE2CC2C4D86B2002F0477 /* InspectionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +61,16 @@
 		BB2AF3552C48F47C00C3BFEF /* SADemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SADemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2AF3592C48F47C00C3BFEF /* SADemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SADemoUITests.swift; sourceTree = "<group>"; };
 		BB2AF35B2C48F47C00C3BFEF /* SADemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SADemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BB2AF3692C491F7D00C3BFEF /* AuthenticationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEntity.swift; sourceTree = "<group>"; };
+		BB2AF36C2C49206D00C3BFEF /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		BB2AF36E2C495CAE00C3BFEF /* InspectionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionEntity.swift; sourceTree = "<group>"; };
+		BB2AF3702C4A3BFA00C3BFEF /* NSURLAPINetworkClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSURLAPINetworkClass.swift; sourceTree = "<group>"; };
+		BB2AF3722C4AA77200C3BFEF /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
+		BB3DE2C52C4B84A5002F0477 /* LoginRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewModel.swift; sourceTree = "<group>"; };
+		BB3DE2C72C4BCBDC002F0477 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		BB3DE2C92C4BCBE7002F0477 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		BB3DE2CB2C4D86B2002F0477 /* InspectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionTableViewCell.swift; sourceTree = "<group>"; };
+		BB3DE2CC2C4D86B2002F0477 /* InspectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InspectionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +122,16 @@
 			isa = PBXGroup;
 			children = (
 				BB2AF3352C48F47B00C3BFEF /* AppDelegate.swift */,
+				BB2AF36B2C49205A00C3BFEF /* Network */,
+				BB2AF3682C491F6400C3BFEF /* ModelClasses */,
 				BB2AF3372C48F47B00C3BFEF /* SceneDelegate.swift */,
 				BB2AF3392C48F47B00C3BFEF /* ViewController.swift */,
+				BB2AF3722C4AA77200C3BFEF /* LoginRegisterViewController.swift */,
+				BB3DE2C52C4B84A5002F0477 /* LoginRegisterViewModel.swift */,
+				BB3DE2C72C4BCBDC002F0477 /* DashboardViewController.swift */,
+				BB3DE2C92C4BCBE7002F0477 /* DashboardViewModel.swift */,
+				BB3DE2CB2C4D86B2002F0477 /* InspectionTableViewCell.swift */,
+				BB3DE2CC2C4D86B2002F0477 /* InspectionTableViewCell.xib */,
 				BB2AF33B2C48F47B00C3BFEF /* Main.storyboard */,
 				BB2AF3412C48F47C00C3BFEF /* Assets.xcassets */,
 				BB2AF3432C48F47C00C3BFEF /* LaunchScreen.storyboard */,
@@ -128,6 +156,24 @@
 				BB2AF35B2C48F47C00C3BFEF /* SADemoUITestsLaunchTests.swift */,
 			);
 			path = SADemoUITests;
+			sourceTree = "<group>";
+		};
+		BB2AF3682C491F6400C3BFEF /* ModelClasses */ = {
+			isa = PBXGroup;
+			children = (
+				BB2AF3692C491F7D00C3BFEF /* AuthenticationEntity.swift */,
+				BB2AF36E2C495CAE00C3BFEF /* InspectionEntity.swift */,
+			);
+			path = ModelClasses;
+			sourceTree = "<group>";
+		};
+		BB2AF36B2C49205A00C3BFEF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BB2AF3702C4A3BFA00C3BFEF /* NSURLAPINetworkClass.swift */,
+				BB2AF36C2C49206D00C3BFEF /* Endpoints.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +283,7 @@
 				BB2AF3452C48F47C00C3BFEF /* LaunchScreen.storyboard in Resources */,
 				BB2AF3422C48F47C00C3BFEF /* Assets.xcassets in Resources */,
 				BB2AF33D2C48F47B00C3BFEF /* Main.storyboard in Resources */,
+				BB3DE2CE2C4D86B2002F0477 /* InspectionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +308,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB2AF3732C4AA77200C3BFEF /* LoginRegisterViewController.swift in Sources */,
 				BB2AF3402C48F47B00C3BFEF /* SADemo.xcdatamodeld in Sources */,
 				BB2AF33A2C48F47B00C3BFEF /* ViewController.swift in Sources */,
+				BB3DE2CA2C4BCBE7002F0477 /* DashboardViewModel.swift in Sources */,
+				BB3DE2C62C4B84A5002F0477 /* LoginRegisterViewModel.swift in Sources */,
+				BB3DE2CD2C4D86B2002F0477 /* InspectionTableViewCell.swift in Sources */,
+				BB2AF36A2C491F7D00C3BFEF /* AuthenticationEntity.swift in Sources */,
+				BB2AF3712C4A3BFA00C3BFEF /* NSURLAPINetworkClass.swift in Sources */,
 				BB2AF3362C48F47B00C3BFEF /* AppDelegate.swift in Sources */,
+				BB2AF36D2C49206D00C3BFEF /* Endpoints.swift in Sources */,
+				BB3DE2C82C4BCBDC002F0477 /* DashboardViewController.swift in Sources */,
 				BB2AF3382C48F47B00C3BFEF /* SceneDelegate.swift in Sources */,
+				BB2AF36F2C495CAE00C3BFEF /* InspectionEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AnswerChoice" representedClassName="AnswerChoice" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="answerChoice" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AnswerChoice"/>
+    </entity>
+    <entity name="Area" representedClassName="Area" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question"/>
+        <relationship name="survey" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Survey"/>
+    </entity>
+    <entity name="Inspection" representedClassName="Inspection" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Area"/>
+        <relationship name="inspectionType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InspectionType"/>
+        <relationship name="survey" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Survey"/>
+    </entity>
+    <entity name="InspectionType" representedClassName="InspectionType" syncable="YES" codeGenerationType="class">
+        <attribute name="access" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="selectedAnswerChoiceId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="answerChoices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AnswerChoice"/>
+    </entity>
+    <entity name="Survey" representedClassName="Survey" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
 </model>
