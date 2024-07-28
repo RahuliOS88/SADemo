@@ -105,7 +105,7 @@ class APIService: NSObject {
         }.resume()
     }
 
-    static func startInspectionApi(completion: @escaping (Result<Response, Error>) -> Void) {
+    static func startInspectionApi(completion: @escaping (Result<InspectionResponse, Error>) -> Void) {
         guard let url = URL(string: Endpoints.inspectionsStart) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
@@ -136,7 +136,7 @@ class APIService: NSObject {
             }
 
             do {
-                let inspection = try JSONDecoder().decode(Response.self, from: responseData)
+                let inspection = try JSONDecoder().decode(InspectionResponse.self, from: responseData)
                 completion(.success(inspection))
             } catch {
                 completion(.failure(error))
@@ -144,9 +144,8 @@ class APIService: NSObject {
         }.resume()
     }
 
-
-    static func getInspectionApi(completion: @escaping (Result<[InspectionSA], Error>) -> Void) {
-        guard let url = URL(string: Endpoints.getInspections) else {
+    static func getRandomInspectionApi(completion: @escaping (Result<InspectionResponse, Error>) -> Void) {
+        guard let url = URL(string: Endpoints.randomInspection) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
         }
@@ -176,11 +175,86 @@ class APIService: NSObject {
             }
 
             do {
-                let inspection = try JSONDecoder().decode([InspectionSA].self, from: responseData)
+                let inspection = try JSONDecoder().decode(InspectionResponse.self, from: responseData)
                 completion(.success(inspection))
             } catch {
                 completion(.failure(error))
             }
+
+        }.resume()
+    }
+
+    static func getInspectionApi(id: Int, completion: @escaping (Result<InspectionResponse, Error>) -> Void) {
+        guard let url = URL(string: "\(Endpoints.getInspections)\(id)") else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = REQUESTMETHOD.GET
+
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
+                let error = NSError(domain: "HTTP Error", code: statusCode, userInfo: nil)
+                completion(.failure(error))
+                return
+            }
+
+            guard let responseData = data else {
+                let error = NSError(domain: "No data received", code: 0, userInfo: nil)
+                completion(.failure(error))
+                return
+            }
+
+            do {
+                let inspection = try JSONDecoder().decode(InspectionResponse.self, from: responseData)
+                completion(.success(inspection))
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
+    }
+
+    static func generateRandomInspectionApi(completion: @escaping (Result<Data, Error>) -> Void) {
+        guard let url = URL(string: Endpoints.generateRandomInspections) else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = REQUESTMETHOD.GET
+
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
+                let error = NSError(domain: "HTTP Error", code: statusCode, userInfo: nil)
+                completion(.failure(error))
+                return
+            }
+
+            guard let responseData = data else {
+                let error = NSError(domain: "No data received", code: 0, userInfo: nil)
+                completion(.failure(error))
+                return
+            }
+
+            completion(.success(responseData))
+
         }.resume()
     }
 
@@ -212,7 +286,7 @@ class APIService: NSObject {
         }.resume()
     }
 
-    static func submitInspectionApi(inspection: Response, completion: @escaping (Result<Data, Error>) -> Void) {
+    static func submitInspectionApi(inspection: InspectionResponse, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = URL(string: Endpoints.submitInspections) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return

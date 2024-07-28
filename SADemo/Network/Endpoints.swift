@@ -16,7 +16,7 @@ enum Endpoints {
     static let login = "\(ApiUrl.baseUrl)/api/login"
     static let inspectionsStart = "\(ApiUrl.baseUrl)/api/inspections/start"
     static let submitInspections = "\(ApiUrl.baseUrl)/api/inspections/submit"
-    static let generateRandomInspections = "\(ApiUrl.baseUrl)/api/generate_random_inspections/"
+    static let generateRandomInspections = "\(ApiUrl.baseUrl)/api/generate_random_inspections/10"
     static let randomInspection = "\(ApiUrl.baseUrl)/api/random_inspection"
     static let getInspections = "\(ApiUrl.baseUrl)/api/inspections/"
     static let deleteInspections = "\(ApiUrl.baseUrl)/api/inspections/"

@@ -8,8 +8,8 @@
 import Foundation
 import CoreData
 
-struct Response: Codable {
-    let inspection: InspectionSA
+struct InspectionResponse: Codable {
+    var inspection: InspectionSA
 }
 
 struct InspectionSA: Codable {
@@ -33,7 +33,7 @@ struct QuestionSA: Codable {
 }
 
 struct CategorySA: Codable {
-    let id: Int16
+    let id: Int16?
     let name: String
     let questions: [QuestionSA]
 }
@@ -50,7 +50,7 @@ struct AreaSA: Codable {
 }
 
 struct SurveySA: Codable {
-    let id: Int16
+    let id: Int16?
     let categories: [CategorySA]
 }
 

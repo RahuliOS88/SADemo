@@ -21,7 +21,7 @@ class DashboardViewController: MasterViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         updateUI()
-        viewModel.getInspection()
+        viewModel.getRandomInspection()
     }
 
     @IBAction func startInspection(_ sender: UIButton) {
@@ -31,6 +31,15 @@ class DashboardViewController: MasterViewController {
     @IBAction func submitInspection(_ sender: UIButton) {
         viewModel.submitInspection()
     }
+
+    @IBAction func getInspection(_ sender: UIButton) {
+        viewModel.getInspection(id: 3)
+    }
+
+    @IBAction func generateRandomInspections(_ sender: UIButton) {
+        viewModel.generateRandomInspections()
+    }
+
 
     func updateUI() {
         self.inspectionTable.dataSource = self
@@ -50,13 +59,12 @@ class DashboardViewController: MasterViewController {
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                 self.showAlert(tittle: "Success!!", messsage: "Inspection started successfully!!")
-
             })
         }
 
-        viewModel.onSubmitSuccess = {
+        viewModel.commonSuccess = { message in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-                self.showAlert(tittle: "Success!!", messsage: "Inspection submitted successfully!!")
+                self.showAlert(tittle: "Success!!", messsage: message)
 
             })
         }
@@ -67,7 +75,7 @@ class DashboardViewController: MasterViewController {
             })
         }
 
-        viewModel.onGetInpectionSuccess = {
+        viewModel.onGetRandomInpectionSuccess = {
             DispatchQueue.main.async {
                 self.inspectionTable.reloadData()
             }
@@ -76,19 +84,30 @@ class DashboardViewController: MasterViewController {
 }
 extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.inspection.count > 0 ? 1 : 0
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.inspections.count
+        return self.viewModel.inspection.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InspectionTableViewCell", for: indexPath) as! InspectionTableViewCell
-        cell.updateCell(inspection: self.viewModel.inspections[indexPath.row])
+        cell.updateCell(inspection: self.viewModel.inspection[indexPath.row].inspection)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.deleteInspection(id: Int(self.viewModel.inspections[indexPath.row].id))
+        let alertController = UIAlertController(title: "Alert!", message: "Are you sure want to delete inspection?", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.viewModel.deleteInspection(id: Int(self.viewModel.inspection[indexPath.row].inspection.id))
+        }
+
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { _ in }
+        alertController.addAction(okAction)
+        alertController.addAction(cancel)
+
+        present(alertController, animated: true, completion: nil)
+
     }
 }

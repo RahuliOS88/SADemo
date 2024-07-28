@@ -11,10 +11,11 @@ import UIKit
 
 class DashboardViewModel: NSObject {
     var onSuccess: (() -> Void)?
+    var commonSuccess: ((String) -> Void)?
     var onSubmitSuccess: (() -> Void)?
-    var onGetInpectionSuccess: (() -> Void)?
+    var onGetRandomInpectionSuccess: (() -> Void)?
     var onFailure: ((Error) -> Void)?
-    var inspections: [InspectionSA] = []
+    var inspection: [InspectionResponse] = []
 
     func startInspection() {
         APIService.startInspectionApi{ result in
@@ -30,7 +31,7 @@ class DashboardViewModel: NSObject {
     }
 
     func submitInspection() {
-        let inspection = Response(inspection: InspectionSA(id: 11,
+        let inspection = InspectionResponse(inspection: InspectionSA(id: 11,
                                                            inspectionType: InspectionTypeSA(access: "write", id: 2, name: "Clinical"),
                                                            area: AreaSA(id: 5, name: "Emergency ICU Test"),
                                                            survey: SurveySA(id: 4,
@@ -41,9 +42,9 @@ class DashboardViewModel: NSObject {
 
         APIService.submitInspectionApi(inspection: inspection) { result in
             switch result {
-            case .success(_):
+            case .success:
                 DispatchQueue.main.async {
-                    self.onSubmitSuccess?()
+                    self.commonSuccess?("Inspection submitted successfully!!")
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -53,7 +54,20 @@ class DashboardViewModel: NSObject {
         }
     }
 
-    func handleSuccess(inspectionData: Response) {
+    func generateRandomInspections() {
+        APIService.generateRandomInspectionApi{ result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    self.commonSuccess?("10 Inspections generated successfully!!")
+                }
+            case .failure(let error):
+                self.handleError(error: error)
+            }
+        }
+    }
+
+    func handleSuccess(inspectionData: InspectionResponse) {
         let appDel = UIApplication.shared.delegate as! AppDelegate
         saveDataInDB(inspectionData.inspection, in: appDel.persistentContainer.viewContext)
     }
@@ -82,11 +96,11 @@ class DashboardViewModel: NSObject {
             inspection.area = area
 
             let survey = Survey(context: bgContext)
-            survey.id = dto.survey.id
+            survey.id = dto.survey.id ?? 0
 
             for category in dto.survey.categories {
                 let categoryL = Category(context: bgContext)
-                categoryL.id = category.id
+                categoryL.id = category.id ?? 0
                 categoryL.name = category.name
 
                 for questionO in category.questions {
@@ -117,12 +131,26 @@ class DashboardViewModel: NSObject {
         }
     }
 
-    func getInspection() {
-        APIService.getInspectionApi { result in
+    func getRandomInspection() {
+        APIService.getRandomInspectionApi { result in
             switch result {
             case .success(let response):
-                self.inspections = response
-                self.onGetInpectionSuccess?()
+                self.inspection.append(response)
+                self.onGetRandomInpectionSuccess?()
+                break
+            case .failure(let error):
+                self.handleError(error: error)
+                break
+            }
+        }
+    }
+
+    func getInspection(id: Int) {
+        APIService.getInspectionApi(id: id) { result in
+            switch result {
+            case .success(let response):
+                self.inspection.append(response)
+                self.onGetRandomInpectionSuccess?()
                 break
             case .failure(let error):
                 self.handleError(error: error)
@@ -134,8 +162,10 @@ class DashboardViewModel: NSObject {
     func deleteInspection(id: Int) {
         APIService.deleteInspectionApi(id: id) { result in
             switch result {
-            case .success(let response):
-                self.onSubmitSuccess?()
+            case .success:
+                self.commonSuccess?("Inspection deleted successfully!!")
+                self.inspection = []
+                self.onGetRandomInpectionSuccess?()
                 break
             case .failure(let error):
                 self.handleError(error: error)

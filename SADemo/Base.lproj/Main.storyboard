@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Landing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SADemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LandingViewController" customModule="SADemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,8 +19,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="4Ug-TB-CIv">
                                 <rect key="frame" x="49.666666666666657" y="322.33333333333331" width="294" height="207.66666666666669"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to SA Technology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cs8-De-yPj">
-                                        <rect key="frame" x="11.333333333333343" y="0.0" width="271.33333333333326" height="27.666666666666668"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tendable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cs8-De-yPj">
+                                        <rect key="frame" x="40.333333333333329" y="0.0" width="213.33333333333337" height="27.666666666666668"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QjD-eh-K43">
                                                 <rect key="frame" x="0.0" y="42" width="235.66666666666666" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -108,7 +108,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to SA Technology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6k-Py-q0B">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tendable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6k-Py-q0B">
                                 <rect key="frame" x="60" y="281.33333333333331" width="271.33333333333331" height="27.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -144,63 +144,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to SA Technology Dashboard View" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OF-ia-4lJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Welcome to Tendable Dashboard View" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OF-ia-4lJ">
                                 <rect key="frame" x="16" y="94" width="361" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="WcK-Ar-HiQ">
-                                <rect key="frame" x="71.666666666666671" y="646.33333333333337" width="249.66666666666663" height="101.66666666666663"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WcK-Ar-HiQ">
+                                <rect key="frame" x="16" y="157" width="361" height="161.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKF-SH-lMI">
-                                        <rect key="frame" x="0.0" y="0.0" width="249.66666666666666" height="43.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="232.66666666666666" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Click to start the Inspection"/>
                                         <connections>
                                             <action selector="startInspection:" destination="U8f-1g-g3u" eventType="touchUpInside" id="I68-xR-J7f"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkQ-AI-0eJ" userLabel="Click to generate the Inspection">
+                                        <rect key="frame" x="0.0" y="42.333333333333343" width="267.33333333333331" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Click to generate 10 Inspections"/>
+                                        <connections>
+                                            <action selector="generateRandomInspections:" destination="U8f-1g-g3u" eventType="touchUpInside" id="eh6-Fr-ffM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxc-O7-cTl" userLabel="Click to generate the Inspection">
+                                        <rect key="frame" x="0.0" y="84.666666666666657" width="193.66666666666666" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Click to get Inspection"/>
+                                        <connections>
+                                            <action selector="getInspection:" destination="U8f-1g-g3u" eventType="touchUpInside" id="LbH-LH-AR9"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEA-xH-5g4">
-                                        <rect key="frame" x="0.0" y="67.333333333333258" width="249.66666666666666" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="126.99999999999999" width="249.66666666666666" height="34.333333333333329"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Click to submit the Inspection"/>
                                         <connections>
-                                            <action selector="startInspection:" destination="U8f-1g-g3u" eventType="touchUpInside" id="YuL-Iu-NUl"/>
                                             <action selector="submitInspection:" destination="U8f-1g-g3u" eventType="touchUpInside" id="TB0-2m-KQL"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inspection list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FY-L7-hx9">
-                                <rect key="frame" x="24" y="161" width="131" height="26.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Random Inspection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FY-L7-hx9">
+                                <rect key="frame" x="24" y="342.33333333333331" width="155" height="21.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KBN-2z-Htu">
-                                <rect key="frame" x="24" y="195.33333333333337" width="345" height="435"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KBN-2z-Htu">
+                                <rect key="frame" x="24" y="372" width="345" height="430"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="435" id="D5D-OO-6Tm"/>
-                                </constraints>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pz2-vH-Zqs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KBN-2z-Htu" firstAttribute="top" secondItem="3FY-L7-hx9" secondAttribute="bottom" constant="8" symbolic="YES" id="3PN-Xj-k7t"/>
-                            <constraint firstItem="Pz2-vH-Zqs" firstAttribute="bottom" secondItem="WcK-Ar-HiQ" secondAttribute="bottom" constant="70" id="3cf-c2-a9h"/>
                             <constraint firstItem="3FY-L7-hx9" firstAttribute="leading" secondItem="Pz2-vH-Zqs" secondAttribute="leading" constant="24" id="8dd-Jb-3Nt"/>
+                            <constraint firstItem="Pz2-vH-Zqs" firstAttribute="bottom" secondItem="KBN-2z-Htu" secondAttribute="bottom" constant="16" id="I8z-Vt-Me5"/>
                             <constraint firstItem="Pz2-vH-Zqs" firstAttribute="trailing" secondItem="9OF-ia-4lJ" secondAttribute="trailing" constant="16" id="IKG-Fg-R8u"/>
+                            <constraint firstItem="3FY-L7-hx9" firstAttribute="top" secondItem="WcK-Ar-HiQ" secondAttribute="bottom" constant="24" id="KdO-hR-0YR"/>
                             <constraint firstItem="9OF-ia-4lJ" firstAttribute="top" secondItem="Pz2-vH-Zqs" secondAttribute="top" constant="35" id="RRh-pQ-3ps"/>
-                            <constraint firstItem="WcK-Ar-HiQ" firstAttribute="top" secondItem="KBN-2z-Htu" secondAttribute="bottom" constant="16" id="Ryg-V9-uhZ"/>
+                            <constraint firstItem="WcK-Ar-HiQ" firstAttribute="top" secondItem="9OF-ia-4lJ" secondAttribute="bottom" constant="8" symbolic="YES" id="amG-0d-OyD"/>
                             <constraint firstItem="WcK-Ar-HiQ" firstAttribute="centerX" secondItem="bIx-mW-mRr" secondAttribute="centerX" id="beD-b2-vfA"/>
+                            <constraint firstItem="WcK-Ar-HiQ" firstAttribute="leading" secondItem="Pz2-vH-Zqs" secondAttribute="leading" constant="16" id="co0-5O-5fA"/>
+                            <constraint firstItem="Pz2-vH-Zqs" firstAttribute="trailing" secondItem="WcK-Ar-HiQ" secondAttribute="trailing" constant="16" id="dnY-s4-ZIs"/>
+                            <constraint firstItem="WcK-Ar-HiQ" firstAttribute="leading" secondItem="Pz2-vH-Zqs" secondAttribute="leading" constant="16" id="gS4-Lb-GOw"/>
                             <constraint firstItem="9OF-ia-4lJ" firstAttribute="leading" secondItem="Pz2-vH-Zqs" secondAttribute="leading" constant="16" id="h11-ar-0oa"/>
                             <constraint firstItem="Pz2-vH-Zqs" firstAttribute="trailing" secondItem="KBN-2z-Htu" secondAttribute="trailing" constant="24" id="pNL-bh-b6b"/>
                             <constraint firstItem="Pz2-vH-Zqs" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3FY-L7-hx9" secondAttribute="trailing" symbolic="YES" id="tUl-qo-384"/>
                             <constraint firstItem="KBN-2z-Htu" firstAttribute="top" secondItem="3FY-L7-hx9" secondAttribute="bottom" constant="8" id="uZ0-AM-R6U"/>
-                            <constraint firstItem="3FY-L7-hx9" firstAttribute="top" secondItem="9OF-ia-4lJ" secondAttribute="bottom" constant="12" id="uyJ-11-s3D"/>
                             <constraint firstItem="KBN-2z-Htu" firstAttribute="leading" secondItem="Pz2-vH-Zqs" secondAttribute="leading" constant="24" id="vL2-Ux-Mpz"/>
                         </constraints>
                     </view>
@@ -220,7 +235,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to SA Technology Inspection View" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-U5-4cm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tendable Inspection View" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-U5-4cm">
                                 <rect key="frame" x="16" y="213" width="361" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
